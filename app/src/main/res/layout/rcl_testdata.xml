@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/rclcodetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="编码："
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/rclnametext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="数据名称："
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/rclcodetext"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_marginTop="5dp"
+        android:id="@+id/rclpricetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="价格："
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/rclnametext"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_marginEnd="10dp"
+        android:id="@+id/rclqtytext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="数量：20"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
