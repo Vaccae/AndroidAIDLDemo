@@ -8,41 +8,58 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:padding="10dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btngetlist"
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/recycler_view" />
+        android:layout_marginBottom="1dp"
+        android:padding="3dp"
+        app:layout_constraintBottom_toTopOf="@id/btngetlist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btngetdata"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:text="获取第一条"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnupdlist"
         app:layout_constraintEnd_toStartOf="@id/btngetlist"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btngetlist"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@id/btngetlist" />
 
     <Button
         android:id="@+id/btngetlist"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
         android:text="获取列表"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btngetdata"
         app:layout_constraintTop_toBottomOf="@id/recycler_view"
+        app:layout_constraintBottom_toTopOf="@+id/btntest"/>
+
+    <Button
+        android:id="@+id/btnupdlist"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="更新列表"
+        app:layout_constraintEnd_toStartOf="@+id/btntest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btngetdata"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <Button
+        android:id="@+id/btntest"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:text="bundle通讯"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnupdlist"
+        app:layout_constraintTop_toBottomOf="@+id/btngetdata"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,4 +22,10 @@ interface ITestDataAidlInterface {
 
     //修改测试类
     boolean updateTestData(in TestData data);
+
+    //更新整个列表
+    boolean updateTestDatsList(inout List<TestData> datas);
+
+    //多个对象参数传递
+    List<TestData> transBundle(in Bundle bundle);
 }
