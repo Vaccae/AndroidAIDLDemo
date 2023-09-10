@@ -2,6 +2,7 @@ package vac.test.aidldemo
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.IBinder
 import android.os.RemoteException
 import android.util.Log
 import android.view.View
@@ -9,7 +10,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import vac.test.aidldemo.databinding.ActivityMainBinding
+import vac.test.aidlservice.IServiceListener
 import vac.test.aidlservice.TestData
 
 
@@ -18,6 +23,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var mAdapter: TestDataAdapter
+
+    private val listener = object : IServiceListener.Stub() {
+        override fun callback(msg: String?) {
+            Log.i("aidlpkg", msg.toString())
+            Snackbar.make(binding.recyclerView, msg.toString(), Snackbar.LENGTH_LONG).show()
+        }
+
+    }
 
     private fun bindAidlService() {
         val intent = Intent()
@@ -43,7 +56,21 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "点击关闭按钮", Toast.LENGTH_SHORT).show()
                 }
                 .show()
+        }else{
+            GlobalScope.launch {
+                //ServiceConnect连拉后这里加入个延时1秒后再注册，直接进行注册，服务端未bind成功会注册不上
+                delay(1000)
+                //连接成功后注册回调
+                AidlProcessUtil.getAidlService()?.registerListener(listener)
+            }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        //关闭时释放回调
+        AidlProcessUtil.getAidlService()?.unregisterListener(listener)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

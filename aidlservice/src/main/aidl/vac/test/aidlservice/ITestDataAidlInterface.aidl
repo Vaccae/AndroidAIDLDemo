@@ -2,6 +2,7 @@
 package vac.test.aidlservice;
 
 // Declare any non-default types here with import statements
+import vac.test.aidlservice.IServiceListener;
 
 parcelable TestData;
 
@@ -28,4 +29,10 @@ interface ITestDataAidlInterface {
 
     //多个对象参数传递
     List<TestData> transBundle(in Bundle bundle);
+
+    //注册监听
+    oneway void registerListener(IServiceListener listener);
+
+    //解绑监听
+    oneway void unregisterListener(IServiceListener listener);
 }

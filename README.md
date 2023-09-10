@@ -3,6 +3,12 @@
 
 ## 公众号：微卡智享
 
+[**2023-09-11**
+Android Aidl跨进程通讯(四)--接口回调，服务端向客户端发送数据](https://mp.weixin.qq.com/s/gpcFbZU8icNN3yyNWqiDCw)
+
+[**2023-09-04**
+Android Aidl跨进程通讯(三)--进阶使用](https://mp.weixin.qq.com/s/gpcFbZU8icNN3yyNWqiDCw)
+
 [**2023-08-28**
 Android Aidl跨进程通讯(二)--异常捕获处理](https://mp.weixin.qq.com/s/vGLJEO-Jjq3zrcgr1PPugw)
 
